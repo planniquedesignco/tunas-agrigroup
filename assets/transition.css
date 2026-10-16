@@ -1,7 +1,0 @@
-.tunas-transition{position:fixed;inset:0;z-index:20000;display:grid;place-items:center;background:#071d17;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s;isolation:isolate}
-.tunas-transition.is-visible{opacity:1;visibility:visible;pointer-events:auto}
-.tunas-transition::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(91,137,93,.15),transparent 62%)}
-.tunas-transition-inner{position:relative;display:flex;align-items:center;justify-content:center;transform:translateY(10px) scale(.94);opacity:.6;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .45s ease}
-.tunas-transition.is-visible .tunas-transition-inner{transform:translateY(0) scale(1);opacity:1}
-.tunas-transition-logo{display:block;width:clamp(145px,32vw,235px);height:auto;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(0,0,0,.18))}
-@media(prefers-reduced-motion:reduce){.tunas-transition,.tunas-transition-inner{transition:none!important}}
