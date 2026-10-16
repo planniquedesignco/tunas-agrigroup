@@ -1,0 +1,22 @@
+/* Tunas refined navigation transitions — independent of the old disabled loader */
+.tunas-transition{position:fixed;inset:0;z-index:20000;display:grid;place-items:center;background:#071d17;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s ease,visibility .32s;isolation:isolate}
+.tunas-transition.is-visible{opacity:1;visibility:visible;pointer-events:auto}
+.tunas-transition::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(113,149,100,.16),transparent 58%);pointer-events:none}
+.tunas-transition-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;transform:translateY(8px);transition:transform .45s ease}
+.tunas-transition.is-visible .tunas-transition-inner{transform:translateY(0)}
+.tunas-transition-symbol{width:72px;height:86px;overflow:visible;color:#dcca9d}
+.tunas-transition-symbol .stem{stroke-dasharray:64;stroke-dashoffset:64;transition:stroke-dashoffset .75s cubic-bezier(.2,.8,.2,1)}
+.tunas-transition-symbol .leaf{transform-box:fill-box;transform-origin:bottom center;transform:scale(.2);opacity:0;transition:transform .65s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.tunas-transition.is-visible .stem{stroke-dashoffset:0}
+.tunas-transition.is-visible .leaf{transform:scale(1);opacity:1}
+.tunas-transition.is-visible .leaf.right{transition-delay:.14s}
+.tunas-transition-brand{color:#f5f0e4;font-size:13px;letter-spacing:.28em;font-weight:650;font-family:inherit}
+.tunas-transition-caption{color:#d9c79e;font-size:9px;letter-spacing:.29em;font-weight:550}
+@media(prefers-reduced-motion:reduce){.tunas-transition,.tunas-transition-inner,.tunas-transition-symbol *{transition:none!important}}
+/* Keep the plant visibly growing on every page transition. */
+.tunas-transition.is-visible .tunas-transition-symbol .stem{animation:tunasStem .8s ease both}
+.tunas-transition.is-visible .tunas-transition-symbol .leaf{animation:tunasLeaf .72s cubic-bezier(.2,.8,.2,1) both}
+.tunas-transition.is-visible .tunas-transition-symbol .leaf.right{animation-delay:.18s}
+@keyframes tunasStem{from{stroke-dashoffset:64}to{stroke-dashoffset:0}}
+@keyframes tunasLeaf{from{opacity:0;transform:scale(.12)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.tunas-transition.is-visible .tunas-transition-symbol *{animation:none!important}}
