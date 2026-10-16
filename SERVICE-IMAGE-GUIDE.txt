@@ -1,0 +1,10 @@
+SERVICE IMAGES - replace these files inside assets/ (same filenames):
+
+1. service-chili-farming.webp
+2. service-technology-farming.webp
+3. service-farm-management.webp
+4. service-international-trading.webp
+
+Recommended: 1200 x 1500 px (4:5 portrait), WebP, 150-350 KB each.
+The ZIP includes current images under these names so nothing breaks until you replace them.
+Do not rename the files. Keep the subject centered for responsive cropping.
