@@ -1,0 +1,15 @@
+SERVICE IMAGE FILES — Upload to assets/
+
+Desktop (recommended 1200 x 900 px, landscape 4:3):
+service-chili-farming.webp
+service-technology-farming.webp
+service-farm-management.webp
+service-international-trading.webp
+
+Mobile (recommended 900 x 1100 px, portrait):
+service-chili-farming-mobile.webp
+service-technology-farming-mobile.webp
+service-farm-management-mobile.webp
+service-international-trading-mobile.webp
+
+Use WebP, ideally 150–350 KB each. Current mobile files are temporary copies of desktop images so no image is missing until you replace them. Do not change filenames. Responsive images switch automatically at viewport widths of 767 px and below.

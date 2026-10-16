@@ -1,0 +1,46 @@
+
+/* Final Tunas refinements */
+.site-header .brand img,.premium-footer-logo img{object-fit:contain}
+/* Active mobile menu item: no decorative underline */
+@media(max-width:900px){
+ .primary-nav a.active,.primary-nav a[aria-current="page"]{border-bottom:0!important;box-shadow:none!important;background-image:none!important;text-decoration:none!important}
+ .primary-nav a.active::before,.primary-nav a.active::after,.primary-nav a[aria-current="page"]::after{display:none!important;content:none!important}
+ .menu-toggle{display:grid!important;place-items:center;align-content:center;padding:0!important;border:1px solid rgba(255,255,255,.25)!important;border-radius:13px!important;background:rgba(255,255,255,.055)!important;z-index:120!important}
+ .menu-toggle span{display:none!important}
+ .menu-toggle .mobile-menu-symbol{display:block;width:23px;height:23px;stroke:#fff;stroke-width:1.7;fill:none;stroke-linecap:round;transition:transform .25s ease}
+ .menu-toggle:not([aria-expanded="true"]) .mobile-menu-symbol{transform:rotate(-45deg) scale(.8)}
+ .menu-toggle:not([aria-expanded="true"]) .mobile-menu-symbol path:last-child{opacity:0}
+ .menu-toggle[aria-expanded="true"] .mobile-menu-symbol{transform:rotate(0)}
+}
+/* Overlay completely hides header, menu, and all other content during load */
+.tunas-page-loader{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;z-index:2147483647!important;background:#071d17!important;display:flex!important;align-items:center!important;justify-content:center!important;opacity:1;visibility:visible;pointer-events:all;transition:opacity .35s ease,visibility .35s ease;overflow:hidden;isolation:isolate}
+.tunas-page-loader::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,rgba(111,151,95,.13),transparent 60%)}
+.tunas-page-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-center{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;padding:25px;width:min(90vw,430px)}
+.loader-plant{width:75px;height:85px;overflow:visible;fill:none;stroke:#d9c48f;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.plant-stem{stroke-dasharray:75;stroke-dashoffset:75;animation:tunasGrow 1.15s cubic-bezier(.2,.7,.2,1) forwards}
+.plant-earth{opacity:.5}.plant-leaf{transform-box:fill-box;transform-origin:bottom center;transform:scale(.1);opacity:0;animation:tunasLeaf .75s .55s ease-out forwards}
+.plant-leaf.right{animation-delay:.8s}.plant-vein{opacity:0;animation:tunasVein .6s 1s ease forwards}
+.loader-white-logo{width:clamp(180px,52vw,275px);height:auto;max-height:115px;object-fit:contain;animation:tunasLogoReveal .65s .35s both}
+.loader-slogan{color:#d9c48f;text-align:center;font-size:clamp(9px,2.1vw,11px);font-weight:600;letter-spacing:.22em;line-height:1.8;animation:tunasLogoReveal .65s .6s both}
+@keyframes tunasGrow{to{stroke-dashoffset:0}}@keyframes tunasLeaf{to{opacity:1;transform:scale(1)}}@keyframes tunasVein{to{opacity:.65}}@keyframes tunasLogoReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.tunas-page-loader,.loader-plant *,.loader-white-logo,.loader-slogan{animation:none!important;transition:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+
+/* Desktop cinematic edge blending: preserve complete photo and fade only its edges. */
+@media (min-width: 641px) {
+  .story-shot { background: #10271d !important; }
+  .story-shot picture {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.22) 4%, rgba(0,0,0,.78) 10%, #000 18%, #000 82%, rgba(0,0,0,.78) 90%, rgba(0,0,0,.22) 96%, transparent 100%) !important;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.22) 4%, rgba(0,0,0,.78) 10%, #000 18%, #000 82%, rgba(0,0,0,.78) 90%, rgba(0,0,0,.22) 96%, transparent 100%) !important;
+  }
+}
+
+.service-editorial[id]{scroll-margin-top:110px}
+/* Faster, synchronized complete plant growth: final leaf and veins finish before reveal. */
+.plant-stem{animation-duration:.75s!important}
+.plant-leaf{animation-duration:.48s!important;animation-delay:.35s!important}
+.plant-leaf.right{animation-delay:.52s!important}
+.plant-vein{animation-duration:.38s!important;animation-delay:.78s!important}
+.loader-white-logo{animation-duration:.44s!important;animation-delay:.25s!important}
+.loader-slogan{animation-duration:.44s!important;animation-delay:.47s!important}
+.tunas-page-loader{transition:opacity .26s ease,visibility .26s ease!important}
